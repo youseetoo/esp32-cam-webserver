@@ -38,7 +38,7 @@ bool CLStorage::init() {
 #ifdef USE_LittleFS
   return fsStorage->begin(FORMAT_LITTLEFS_IF_FAILED);
 #else
-#if defined(CAMERA_MODEL_LILYGO_T_SIMCAM)
+#if defined(CAMERA_MODEL_LILYGO_T_SIMCAM) || defined(CAMERA_MODEL_XIAO)
   SPI.begin(SD_SCLK_PIN, SD_MISO_PIN, SD_MOSI_PIN, SD_CS_PIN);
   if(!fsStorage->begin(SD_CS_PIN, SPI)) return false;
 #else
